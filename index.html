@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+  </head>
+  <body>
+    <div>
+      <img id="image" width="224" height="224" />
+    </div>
+    <div>
+      <form">
+        <input id="upload" type="file" name="pic" accept="image/*" />
+      </form>
+    </div>
+    <div>
+      <p>RESULTS</p>
+      <p id="first_result"></p>
+      <p id="second_result"></p>
+      <p id="third_result"></p>
+      <div></div>
+    </div>
+    <!-- Load index.js after the content of the page -->
+    <script src="index.js"></script>
+  </body>
+</html>
