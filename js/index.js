@@ -34,8 +34,9 @@ const app = async () => {
       const activation = net.infer(webcamElement, "conv_preds")
       // Get the most likely class and confidences from the classifier module.
       const result = await classifier.predictClass(activation)
+      console.log(result)
 
-      const classes = ["Face", "Fan", "Phone"]
+      const classes = ["Face", "Phone", "T-Shirt"]
       document.getElementById("console").innerText = `Prediction: ${classes[result.classIndex]} with ${(result.confidences[result.classIndex] * 100).toFixed(
         2
       )} % of probability`
@@ -45,22 +46,26 @@ const app = async () => {
 }
 
 const setupWebcam = async () => {
-  const navigatorAny = navigator
-  navigator.getUserMedia = navigator.getUserMedia || navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia || navigatorAny.msGetUserMedia
-  if (navigator.getUserMedia) {
-    navigator.getUserMedia(
-      { video: true },
-      stream => {
-        webcamElement.srcObject = stream
-        webcamElement.addEventListener("loadeddata", () => resolve(), false)
-      },
-      error => {
-        document.getElementById("console").innerText = "Error getting media from Camera"
-      }
-    )
-  } else {
-    document.getElementById("console").innerText = "Camera is not available"
-  }
+  return new Promise((resolve, reject) => {
+    const navigatorAny = navigator
+    navigator.getUserMedia = navigator.getUserMedia || navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia || navigatorAny.msGetUserMedia
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+        { video: true },
+        stream => {
+          webcamElement.srcObject = stream
+          webcamElement.addEventListener("loadeddata", () => resolve(), false)
+        },
+        error => {
+          document.getElementById("console").innerText = "Error getting media from Camera"
+          reject()
+        }
+      )
+    } else {
+      document.getElementById("console").innerText = "Camera is not available"
+      reject()
+    }
+  })
 }
 
 app()
