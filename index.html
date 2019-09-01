@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Load the latest version of TensorFlow.js -->
     <script src="https://unpkg.com/@tensorflow/tfjs"></script>
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+    <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div>
-      <img id="image" width="224" height="224" />
+    <h1>MOBILE NET IMAGE CLASSIFIER</h1>
+    <h2>Classify the items in your room</h2>
+
+    <h3 id="console">
+      Loading the mobilenet model, please wait...
+    </h3>
+
+    <div align="center" class="webcam">
+      <video autoplay playsinline muted id="webcam" width="500" height="500" align="center" poster="img/loading.gif"></video>
     </div>
-    <div>
-      <form">
-        <input id="upload" type="file" name="pic" accept="image/*" />
-      </form>
-    </div>
-    <div>
-      <p>RESULTS</p>
-      <p id="first_result"></p>
-      <p id="second_result"></p>
-      <p id="third_result"></p>
-      <div></div>
+    <div class="buttons" align="center">
+      <button id="class-a">Face</button>
+      <button id="class-b">Fan</button>
+      <button id="class-c">Phone</button>
     </div>
     <!-- Load index.js after the content of the page -->
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

@@ -1,0 +1,67 @@
+:root {
+  --dark-blue: #265f82;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+ul,
+li {
+  list-style-position: inside;
+}
+
+h1 {
+  font-weight: 600;
+  font-family: "Comic Sans MS";
+  color: lightgrey;
+  text-align: center;
+  font-size: 2.5rem;
+  border-bottom: 6px solid lightgrey;
+  background-color: var(--dark-blue);
+}
+
+h2 {
+  font-weight: 10;
+  font-family: "Comic Sans MS";
+  color: var(--dark-blue);
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2.5;
+}
+
+h3 {
+  font-style: "italic";
+  font-weight: 10;
+  font-family: "Comic Sans MS";
+  color: darkgray;
+  text-align: center;
+  font-size: 1.0rem;
+  margin-top: 15;
+}
+
+button {
+  border: none;
+  background: var(--dark-blue);
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  border: none;
+  background: #1f4c69;
+  color: white;
+  padding: 10px;
+}
+
+button:disabled {
+  cursor: default;
+  background: #698ea5;
+}
